@@ -1,0 +1,21 @@
+import pandas as pd
+import numpy as np
+
+np.random.seed(42)
+n = 500
+
+data = {
+    "Gender": np.random.choice(["Male","Female"],n),
+    "Tenure": np.random.randint(1,72,n),
+    "MonthlyCharges": np.random.uniform(20,120,n),
+    "Contract": np.random.choice(["Month-to-month","One year","Two year"],n),
+    "InternetService": np.random.choice(["DSL","Fiber optic","No"],n),
+    "PaymentMethod": np.random.choice(["Electronic check","Mailed check","Bank transfer","Credit card"],n),
+    "Churn": np.random.choice([0,1],n)
+}
+
+df = pd.DataFrame(data)
+
+df.to_csv("customer_churn_dataset.csv",index=False)
+
+df.head()
